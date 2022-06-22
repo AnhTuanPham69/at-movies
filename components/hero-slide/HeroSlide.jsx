@@ -103,6 +103,7 @@ const HeroSlideItem = (props) => {
           </div>
         </div>
         <div className="hero-slide__item__content__poster">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={apiConfig.w500Image(item.poster_path)} alt="" />
         </div>
       </div>

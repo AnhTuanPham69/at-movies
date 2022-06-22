@@ -74,7 +74,7 @@ const MovieGrid = (props) => {
         )}
       </div>
       <div className="section mb-3">
-        {keyword && <h2>Results for "{keyword}"</h2>}
+        {keyword && <h2>Results for &#34;{keyword}&#34;</h2>}
       </div>
       <div className="movie-grid">
         {items.map((item, i) => (
