@@ -220,7 +220,7 @@ iframe {
 
     h2 {
         position: relative;
-        z-index: 99;
+        z-index: 1;
     }
 
     &::after {
@@ -452,7 +452,7 @@ button {
 .modal {
     @include flex(center, center);
     position: fixed;
-    z-index: 100;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -592,7 +592,7 @@ button {
     margin-top: -200px;
     position: relative;
     padding: 0 2rem;
-    z-index: 99;
+    z-index: 1;
 
     &__poster {
         flex: 1;
