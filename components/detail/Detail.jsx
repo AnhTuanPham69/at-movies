@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import tmdbApi from '../../pages/api/tmdbApi';
 import apiConfig from '../../pages/api/apiConfig';
@@ -10,15 +10,15 @@ import Player from './Player';
 import { embedMovie } from '../../constants/embed';
 import { useRouter } from 'next/router';
 
-const Detail = () => {
+const Detail = ({ renderTitle }) => {
   const router = useRouter();
-  const {mid, category} = router.query;
+  const { mid, category } = router.query;
   const [item, setItem] = useState(null);
   const [videoUrl, setVideoUrl] = useState();
-  
+
   useEffect(() => {
     const getDetail = async () => {
-      if(mid || category){
+      if (mid || category) {
         const response = await tmdbApi.detail(category, mid, { params: {} });
         setItem(response);
       }
@@ -27,6 +27,8 @@ const Detail = () => {
     };
     getDetail();
   }, [category, mid]);
+
+  useEffect(() => renderTitle(item?.title ?? item?.name), [item, renderTitle]);
 
   return (
     <>
@@ -55,7 +57,7 @@ const Detail = () => {
 
             <div className="movie-content__info">
               <div className="section mb-3">
-                <h1 className="title">{item.title || item.name}</h1>
+                <h1 className="title">{item.title ?? item.name}</h1>
                 {videoUrl && <Player src={videoUrl} />}
               </div>
               <div className="section mb-3">
