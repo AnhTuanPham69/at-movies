@@ -672,6 +672,11 @@ button {
     &__title {
         margin-bottom: 1.5rem;
     }
+
+    @include mobile {
+       width: 133%;
+       margin-left: -20%;
+    }
 }
 
 .video_list {
